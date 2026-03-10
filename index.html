@@ -1360,4 +1360,722 @@ if (finalCta) stickyObs.observe(finalCta);
 </script><div style="position: fixed; bottom: 0px; left: 0px; width: 100%; height: 200px; z-index: 999; pointer-events: none;"><div style="position: absolute; inset: 0px; backdrop-filter: blur(0.25px); mask-image: linear-gradient(transparent 0%, black 12.5%, black 25%, transparent 37.5%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(0.5px); mask-image: linear-gradient(transparent 12.5%, black 25%, black 37.5%, transparent 50%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(1px); mask-image: linear-gradient(transparent 25%, black 37.5%, black 50%, transparent 62.5%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(2px); mask-image: linear-gradient(transparent 37.5%, black 50%, black 62.5%, transparent 75%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(4px); mask-image: linear-gradient(transparent 50%, black 62.5%, black 75%, transparent 87.5%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(8px); mask-image: linear-gradient(transparent 62.5%, black 75%, black 87.5%, transparent 100%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(16px); mask-image: linear-gradient(transparent 75%, black 87.5%, black 100%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(32px); mask-image: linear-gradient(transparent 87.5%, black 100%);"></div></div><div style="position: fixed; bottom: 0px; left: 0px; width: 100%; height: 200px; z-index: 999; pointer-events: none;"><div style="position: absolute; inset: 0px; backdrop-filter: blur(0.25px); mask-image: linear-gradient(transparent 0%, black 12.5%, black 25%, transparent 37.5%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(0.5px); mask-image: linear-gradient(transparent 12.5%, black 25%, black 37.5%, transparent 50%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(1px); mask-image: linear-gradient(transparent 25%, black 37.5%, black 50%, transparent 62.5%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(2px); mask-image: linear-gradient(transparent 37.5%, black 50%, black 62.5%, transparent 75%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(4px); mask-image: linear-gradient(transparent 50%, black 62.5%, black 75%, transparent 87.5%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(8px); mask-image: linear-gradient(transparent 62.5%, black 75%, black 87.5%, transparent 100%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(16px); mask-image: linear-gradient(transparent 75%, black 87.5%, black 100%);"></div><div style="position: absolute; inset: 0px; backdrop-filter: blur(32px); mask-image: linear-gradient(transparent 87.5%, black 100%);"></div></div>
 
 
+
+<!-- ══ EXIT INTENT POPUP ══ -->
+<div id="exitPopup" style="
+  display:none;
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;
+  padding:20px;
+">
+  <div style="
+    background:#faf8f5;
+    border-radius:20px;
+    max-width:480px;width:100%;
+    padding:40px 36px;
+    position:relative;
+    box-shadow:0 24px 80px rgba(0,0,0,.25);
+    border:1px solid #e0d8ce;
+    text-align:center;
+  ">
+    <!-- Fechar -->
+    <button onclick="closeExitPopup()" style="
+      position:absolute;top:14px;right:16px;
+      background:none;border:none;cursor:pointer;
+      font-size:20px;color:#8a8a8a;line-height:1;
+    ">✕</button>
+
+    <!-- Icone -->
+    <div style="
+      width:64px;height:64px;border-radius:50%;
+      background:rgba(45,106,79,.1);
+      display:flex;align-items:center;justify-content:center;
+      margin:0 auto 20px;font-size:28px;
+    ">🛡️</div>
+
+    <!-- Titulo -->
+    <h2 style="
+      font-family:'Lora',serif;
+      font-size:24px;font-weight:700;
+      color:#1a1a1a;line-height:1.2;
+      margin-bottom:10px;
+    ">Espera — você não tem<br>nada a perder</h2>
+
+    <!-- Subtitulo -->
+    <p style="
+      font-size:15px;color:#4a4a4a;
+      line-height:1.7;margin-bottom:24px;
+    ">O Manual Essencial de Psicanálise vem com <strong style="color:#2d6a4f">garantia incondicional de 30 dias</strong>. Se não gostar por qualquer motivo, devolvemos 100% do valor — sem perguntas.</p>
+
+    <!-- Preco -->
+    <div style="
+      background:#fff;border:1px solid #e0d8ce;
+      border-radius:14px;padding:16px 20px;
+      margin-bottom:24px;
+    ">
+      <div style="font-size:12px;color:#8a8a8a;text-decoration:line-through;margin-bottom:4px;">De R$ 97,00</div>
+      <div style="display:flex;align-items:baseline;justify-content:center;gap:3px;">
+        <span style="font-size:18px;font-weight:600;color:#2d6a4f;">R$</span>
+        <span style="font-family:'Lora',serif;font-size:52px;font-weight:700;color:#1a1a1a;line-height:1;">37</span>
+        <span style="font-family:'Lora',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-top:8px;">,90</span>
+      </div>
+      <div style="font-size:12px;color:#8a8a8a;margin-top:4px;">ou 12x de R$ 6,87 sem juros</div>
+    </div>
+
+    <!-- CTA -->
+    <a href="https://pay.cakto.com.br/tkrh53g_797340" target="_blank"
+       onclick="closeExitPopup()"
+       style="
+         display:block;background:#2d6a4f;color:#fff;
+         font-weight:700;font-size:16px;
+         padding:16px 32px;border-radius:12px;
+         text-decoration:none;margin-bottom:12px;
+         transition:background .2s;
+       "
+       onmouseover="this.style.background='#52b788'"
+       onmouseout="this.style.background='#2d6a4f'"
+    >🔒 Quero o Manual com Garantia</a>
+
+    <!-- Recusar -->
+    <button onclick="closeExitPopup()" style="
+      background:none;border:none;cursor:pointer;
+      font-size:13px;color:#8a8a8a;
+      text-decoration:underline;
+    ">Não, prefiro sair sem garantia</button>
+  </div>
+</div>
+
+<script>
+// ── EXIT INTENT POPUP ──
+(function() {
+  const COOKIE = 'saberpsi_exit';
+  const DELAY  = 5000; // só mostra depois de 5s na página
+
+  function getCookie(n) {
+    const m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)'));
+    return m ? m[1] : null;
+  }
+  function setCookie(n, v, days) {
+    const e = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = n + '=' + v + '; expires=' + e + '; path=/; SameSite=Lax';
+  }
+
+  // Nao mostra se ja viu hoje
+  if (getCookie(COOKIE)) return;
+
+  let ready = false;
+  setTimeout(function() { ready = true; }, DELAY);
+
+  // Desktop — mouse sai pelo topo
+  document.addEventListener('mouseleave', function(e) {
+    if (!ready) return;
+    if (e.clientY <= 10) showPopup();
+  });
+
+  // Mobile — scroll brusco para cima (sinal de querer sair)
+  let lastY = 0, ticking = false;
+  window.addEventListener('scroll', function() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function() {
+      const y = window.scrollY;
+      if (lastY - y > 80 && y < 300 && ready) showPopup();
+      lastY = y;
+      ticking = false;
+    });
+  });
+
+  function showPopup() {
+    if (getCookie(COOKIE)) return;
+    setCookie(COOKIE, '1', 1); // nao mostra de novo por 1 dia
+    const el = document.getElementById('exitPopup');
+    el.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    // Pixel event
+    if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', {content_name: 'ExitPopup'});
+  }
+})();
+
+function closeExitPopup() {
+  document.getElementById('exitPopup').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Fechar clicando fora
+document.getElementById('exitPopup').addEventListener('click', function(e) {
+  if (e.target === this) closeExitPopup();
+});
+</script>
+
+
+<!-- ══ EXIT INTENT POPUP ══ -->
+<div id="exitPopup" style="
+  display:none;
+  position:fixed;inset:0;z-index:99999;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;
+  padding:20px;
+">
+  <div style="
+    background:#fff;
+    border-radius:20px;
+    max-width:480px;width:100%;
+    padding:40px 36px 36px;
+    position:relative;
+    box-shadow:0 24px 80px rgba(0,0,0,.2);
+    text-align:center;
+    animation:popIn .3s cubic-bezier(.34,1.56,.64,1);
+  ">
+    <!-- Fechar -->
+    <button onclick="closeExitPopup()" style="
+      position:absolute;top:14px;right:16px;
+      background:none;border:none;cursor:pointer;
+      font-size:20px;color:#8a8a8a;line-height:1;
+    ">✕</button>
+
+    <!-- Badge -->
+    <div style="
+      display:inline-flex;align-items:center;gap:7px;
+      background:rgba(45,106,79,.08);border:1px solid rgba(45,106,79,.2);
+      color:#2d6a4f;font-size:11px;font-weight:600;
+      text-transform:uppercase;letter-spacing:.08em;
+      padding:6px 14px;border-radius:9999px;margin-bottom:20px;
+    ">⚠️ Espera! Antes de sair...</div>
+
+    <!-- Headline -->
+    <h2 style="
+      font-family:'Lora',serif;font-size:26px;font-weight:700;
+      line-height:1.2;letter-spacing:-.02em;
+      color:#1a1a1a;margin-bottom:10px;
+    ">Você está deixando para trás<br><em style="color:#2d6a4f;font-style:italic;">o conhecimento que buscava</em></h2>
+
+    <p style="font-size:14px;color:#4a4a4a;line-height:1.75;margin-bottom:24px;">
+      O Manual Essencial de Psicanálise tem <strong>garantia incondicional de 30 dias</strong>. Se não gostar, devolvemos 100% do seu dinheiro — sem perguntas.
+    </p>
+
+    <!-- Preço -->
+    <div style="
+      background:#faf8f5;border:1px solid #e0d8ce;
+      border-radius:14px;padding:18px 24px;margin-bottom:24px;
+    ">
+      <div style="font-size:12px;color:#8a8a8a;text-decoration:line-through;margin-bottom:4px;">De R$ 97,00</div>
+      <div style="display:flex;align-items:baseline;justify-content:center;gap:3px;line-height:1;">
+        <span style="font-size:18px;font-weight:600;color:#2d6a4f;">R$</span>
+        <span style="font-family:'Lora',serif;font-size:52px;font-weight:700;color:#1a1a1a;letter-spacing:-.04em;">37</span>
+        <span style="font-family:'Lora',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-top:8px;">,90</span>
+      </div>
+      <div style="font-size:11px;color:#8a8a8a;margin-top:6px;">ou 12x de R$ 6,87 sem juros</div>
+    </div>
+
+    <!-- Itens -->
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:28px;text-align:left;">
+      <div style="font-size:13px;color:#4a4a4a;display:flex;align-items:center;gap:8px;"><span style="color:#2d6a4f;font-weight:700;">✓</span> Acesso imediato após a compra</div>
+      <div style="font-size:13px;color:#4a4a4a;display:flex;align-items:center;gap:8px;"><span style="color:#2d6a4f;font-weight:700;">✓</span> 4 bônus exclusivos incluídos</div>
+      <div style="font-size:13px;color:#4a4a4a;display:flex;align-items:center;gap:8px;"><span style="color:#2d6a4f;font-weight:700;">✓</span> Garantia de 30 dias sem risco</div>
+    </div>
+
+    <!-- CTA -->
+    <a href="https://pay.cakto.com.br/tkrh53g_797340" target="_blank"
+      onclick="closeExitPopup()"
+      style="
+        display:block;background:#2d6a4f;color:#fff;
+        font-weight:700;font-size:16px;padding:16px 32px;
+        border-radius:12px;text-decoration:none;
+        transition:background .2s;margin-bottom:12px;
+      "
+      onmouseover="this.style.background='#52b788'"
+      onmouseout="this.style.background='#2d6a4f'"
+    >🔒 Quero garantir o meu agora</a>
+
+    <button onclick="closeExitPopup()" style="
+      background:none;border:none;cursor:pointer;
+      font-size:13px;color:#8a8a8a;text-decoration:underline;
+    ">Não, prefiro perder a oferta</button>
+  </div>
+</div>
+
+<style>
+@keyframes popIn {
+  from { transform: scale(.85); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+</style>
+
+<script>
+(function() {
+  const popup = document.getElementById('exitPopup');
+  let shown = false;
+
+  function showPopup() {
+    if (shown) return;
+    shown = true;
+    popup.style.display = 'flex';
+    // Dispara evento no pixel
+    if (typeof fbq !== 'undefined') {
+      fbq('trackCustom', 'ExitIntent');
+    }
+  }
+
+  // Desktop — mouse sai pela parte de cima
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 10) showPopup();
+  });
+
+  // Mobile — usuario fica 40s sem interagir
+  let mobileTimer = setTimeout(function() {
+    showPopup();
+  }, 40000);
+
+  ['touchstart','scroll'].forEach(function(ev) {
+    document.addEventListener(ev, function() {
+      clearTimeout(mobileTimer);
+      mobileTimer = setTimeout(showPopup, 40000);
+    }, { passive: true });
+  });
+
+  // Fechar clicando no overlay
+  popup.addEventListener('click', function(e) {
+    if (e.target === popup) closeExitPopup();
+  });
+})();
+
+function closeExitPopup() {
+  document.getElementById('exitPopup').style.display = 'none';
+}
+</script>
+
+
+<!-- ══ EXIT INTENT POPUP ══ -->
+<div id="exitPopup" style="
+  display:none;
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;
+  padding:20px;
+">
+  <div style="
+    background:#faf8f5;
+    border-radius:20px;
+    max-width:480px;width:100%;
+    padding:40px 36px;
+    position:relative;
+    border:1px solid #e0d8ce;
+    box-shadow:0 24px 64px rgba(0,0,0,.2);
+    text-align:center;
+  ">
+    <!-- Botão fechar -->
+    <button onclick="closeExitPopup()" style="
+      position:absolute;top:16px;right:16px;
+      background:none;border:none;cursor:pointer;
+      font-size:20px;color:#8a8a8a;line-height:1;
+      padding:4px 8px;border-radius:6px;
+    ">✕</button>
+
+    <!-- Ícone -->
+    <div style="font-size:48px;margin-bottom:16px;">⏳</div>
+
+    <!-- Título -->
+    <h2 style="
+      font-family:'Lora',serif;
+      font-size:26px;font-weight:700;
+      color:#1a1a1a;line-height:1.2;
+      margin-bottom:10px;letter-spacing:-.02em;
+    ">Espera — antes de sair</h2>
+
+    <!-- Subtítulo -->
+    <p style="
+      font-size:15px;color:#4a4a4a;
+      line-height:1.7;margin-bottom:24px;
+    ">Você ainda pode levar o <strong>Manual Essencial de Psicanálise</strong> por apenas <strong style="color:#2d6a4f">R$ 37,90</strong> — com garantia incondicional de 30 dias.</p>
+
+    <!-- Garantia destaque -->
+    <div style="
+      background:#fff;border:1px solid #e0d8ce;
+      border-radius:12px;padding:16px 20px;
+      margin-bottom:24px;
+      display:flex;align-items:center;gap:14px;
+      text-align:left;
+    ">
+      <div style="
+        width:52px;height:52px;border-radius:50%;
+        background:#2d6a4f;flex-shrink:0;
+        display:flex;flex-direction:column;
+        align-items:center;justify-content:center;
+      ">
+        <span style="font-family:'Lora',serif;font-size:18px;font-weight:700;color:#fff;line-height:1;">30</span>
+        <span style="font-size:8px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.08em;">dias</span>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:3px;">Garantia total de 30 dias</div>
+        <div style="font-size:13px;color:#6a6a6a;line-height:1.5;">Se não gostar, devolvemos 100% do valor. Sem perguntas, sem burocracia.</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <a href="https://pay.cakto.com.br/tkrh53g_797340" target="_blank"
+       onclick="closeExitPopup()"
+       style="
+         display:block;
+         background:#2d6a4f;color:#fff;
+         font-weight:700;font-size:16px;
+         padding:16px 32px;border-radius:12px;
+         text-decoration:none;
+         margin-bottom:12px;
+         transition:background .2s;
+       "
+       onmouseover="this.style.background='#52b788'"
+       onmouseout="this.style.background='#2d6a4f'"
+    >Quero garantir minha cópia →</a>
+
+    <!-- Link fechar -->
+    <button onclick="closeExitPopup()" style="
+      background:none;border:none;cursor:pointer;
+      font-size:13px;color:#8a8a8a;
+      text-decoration:underline;
+    ">Não, prefiro sair sem o manual</button>
+  </div>
+</div>
+
+<script>
+// ── EXIT INTENT ──
+(function() {
+  const POPUP_KEY = 'saberpsi_exit_shown';
+
+  function getCookie(name) {
+    const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+  function setCookie(name, value, days) {
+    const exp = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + exp + '; path=/; SameSite=Lax';
+  }
+
+  // Só mostra 1 vez por dia
+  if (getCookie(POPUP_KEY)) return;
+
+  let triggered = false;
+
+  // Desktop — mouse sai pelo topo da página
+  document.addEventListener('mouseleave', function(e) {
+    if (triggered) return;
+    if (e.clientY <= 10) {
+      triggered = true;
+      showExitPopup();
+    }
+  });
+
+  // Mobile — detecta scroll para cima rápido (sinal de saída)
+  let lastScrollY = window.scrollY;
+  let lastScrollTime = Date.now();
+  window.addEventListener('scroll', function() {
+    const now = Date.now();
+    const delta = lastScrollY - window.scrollY;
+    const timeDiff = now - lastScrollTime;
+    // Scroll para cima rápido (mais de 100px em menos de 300ms)
+    if (!triggered && delta > 100 && timeDiff < 300 && window.scrollY < 200) {
+      triggered = true;
+      showExitPopup();
+    }
+    lastScrollY = window.scrollY;
+    lastScrollTime = now;
+  });
+
+  function showExitPopup() {
+    const popup = document.getElementById('exitPopup');
+    if (popup) {
+      popup.style.display = 'flex';
+      setCookie(POPUP_KEY, '1', 1);
+      // Dispara evento no pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('trackCustom', 'ExitIntent');
+      }
+    }
+  }
+})();
+
+function closeExitPopup() {
+  const popup = document.getElementById('exitPopup');
+  if (popup) popup.style.display = 'none';
+}
+
+// Fecha clicando fora do card
+document.getElementById('exitPopup').addEventListener('click', function(e) {
+  if (e.target === this) closeExitPopup();
+});
+</script>
+
+
+<!-- ══ EXIT INTENT POPUP ══ -->
+<div id="exitPopup" style="
+  display:none;
+  position:fixed;inset:0;z-index:99999;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;
+  padding:20px;
+">
+  <div style="
+    background:#faf8f5;
+    border-radius:20px;
+    max-width:480px;width:100%;
+    padding:40px 36px 36px;
+    position:relative;
+    border:1px solid #e0d8ce;
+    box-shadow:0 24px 80px rgba(0,0,0,0.2);
+    text-align:center;
+  ">
+    <!-- Fechar -->
+    <button onclick="closeExitPopup()" style="
+      position:absolute;top:14px;right:16px;
+      background:none;border:none;cursor:pointer;
+      font-size:20px;color:#8a8a8a;line-height:1;
+    ">✕</button>
+
+    <!-- Badge -->
+    <div style="
+      display:inline-flex;align-items:center;gap:7px;
+      background:rgba(45,106,79,0.08);border:1px solid rgba(45,106,79,0.2);
+      color:#2d6a4f;font-size:11px;font-weight:600;
+      text-transform:uppercase;letter-spacing:.08em;
+      padding:5px 14px;border-radius:9999px;margin-bottom:20px;
+    ">⚠️ Espera! Antes de sair...</div>
+
+    <!-- Título -->
+    <h2 style="
+      font-family:'Lora',serif;font-size:26px;font-weight:700;
+      color:#1a1a1a;line-height:1.2;margin-bottom:12px;
+      letter-spacing:-.02em;
+    ">Você está saindo<br><em style="color:#2d6a4f;font-style:italic;">sem risco nenhum.</em></h2>
+
+    <p style="font-size:14px;color:#4a4a4a;line-height:1.75;margin-bottom:24px;">
+      O Manual Essencial de Psicanálise tem <strong>garantia incondicional de 30 dias</strong>. 
+      Se não gostar por qualquer motivo, devolvemos 100% do valor — sem perguntas.
+    </p>
+
+    <!-- Preço -->
+    <div style="
+      background:#fff;border:1px solid #e0d8ce;border-radius:14px;
+      padding:18px 24px;margin-bottom:24px;
+    ">
+      <div style="font-size:12px;color:#8a8a8a;text-decoration:line-through;margin-bottom:4px;">De R$ 97,00</div>
+      <div style="display:flex;align-items:baseline;justify-content:center;gap:3px;">
+        <span style="font-size:18px;font-weight:600;color:#2d6a4f;">R$</span>
+        <span style="font-family:'Lora',serif;font-size:52px;font-weight:700;color:#1a1a1a;line-height:1;">37</span>
+        <span style="font-family:'Lora',serif;font-size:24px;font-weight:700;color:#1a1a1a;margin-top:8px;">,90</span>
+      </div>
+      <div style="font-size:11px;color:#8a8a8a;margin-top:4px;">ou 12x de R$ 6,87 sem juros</div>
+    </div>
+
+    <!-- CTA -->
+    <a href="https://pay.cakto.com.br/tkrh53g_797340" target="_blank"
+      onclick="closeExitPopup();fbq('track','InitiateCheckout',{content_name:'Manual Essencial de Psicanalise',value:37.90,currency:'BRL'});"
+      style="
+        display:block;background:#2d6a4f;color:#fff;
+        font-weight:700;font-size:15px;padding:16px 32px;
+        border-radius:12px;text-decoration:none;
+        transition:background .2s;margin-bottom:12px;
+      ">
+      🔒 Quero o Manual com Garantia de 30 dias
+    </a>
+
+    <button onclick="closeExitPopup()" style="
+      background:none;border:none;cursor:pointer;
+      font-size:13px;color:#8a8a8a;text-decoration:underline;
+    ">Não, prefiro sair sem garantia</button>
+  </div>
+</div>
+
+<style>
+#exitPopup.show { display:flex !important; animation: fadeInPopup .3s ease; }
+@keyframes fadeInPopup {
+  from { opacity:0; transform:scale(.96); }
+  to   { opacity:1; transform:scale(1); }
+}
+</style>
+
+<script>
+(function(){
+  let shown = false;
+
+  function showExitPopup() {
+    if (shown) return;
+    shown = true;
+    const popup = document.getElementById('exitPopup');
+    popup.style.display = 'flex';
+    setTimeout(() => popup.classList.add('show'), 10);
+    fbq('track', 'ViewContent', {content_name: 'Exit Intent Popup'});
+  }
+
+  function closeExitPopup() {
+    const popup = document.getElementById('exitPopup');
+    popup.style.display = 'none';
+    popup.classList.remove('show');
+  }
+  window.closeExitPopup = closeExitPopup;
+
+  // Desktop: mouse sai pelo topo da janela
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 10) showExitPopup();
+  });
+
+  // Mobile: usuario fica mais de 40s na pagina e rola para cima bruscamente
+  let lastScrollY = window.scrollY;
+  let scrollTimer;
+  window.addEventListener('scroll', function() {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+      const currentY = window.scrollY;
+      if (lastScrollY - currentY > 200 && currentY < 300) {
+        showExitPopup();
+      }
+      lastScrollY = currentY;
+    }, 100);
+  });
+
+  // Fallback: botao voltar (popstate)
+  history.pushState(null, '', location.href);
+  window.addEventListener('popstate', function() {
+    showExitPopup();
+    history.pushState(null, '', location.href);
+  });
+})();
+</script>
+
+
+<!-- ══ EXIT INTENT POPUP ══ -->
+<style>
+#exit-overlay{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;padding:20px;
+}
+#exit-overlay.show{display:flex;}
+#exit-box{
+  background:#fff;border-radius:20px;
+  max-width:480px;width:100%;
+  overflow:hidden;position:relative;
+  animation:popIn .3s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes popIn{from{transform:scale(.85);opacity:0;}to{transform:scale(1);opacity:1;}}
+#exit-top{
+  background:linear-gradient(135deg,#1e3a2f 0%,#152b22 100%);
+  padding:32px 32px 24px;text-align:center;position:relative;
+}
+#exit-top::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#e9c46a,transparent);}
+#exit-emoji{font-size:40px;margin-bottom:12px;}
+#exit-title{font-family:'Lora',serif;font-size:26px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px;}
+#exit-title span{color:#e9c46a;font-style:italic;}
+#exit-sub{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;}
+#exit-body{padding:28px 32px;}
+#exit-items{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.exit-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#4a4a4a;line-height:1.5;}
+.exit-check{color:#2d6a4f;font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px;}
+#exit-guar{
+  background:rgba(45,106,79,.06);border:1px solid rgba(45,106,79,.2);
+  border-radius:12px;padding:14px 18px;
+  display:flex;align-items:center;gap:14px;margin-bottom:20px;
+}
+#exit-guar-badge{
+  width:48px;height:48px;border-radius:50%;background:#2d6a4f;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+#exit-guar-badge span:first-child{font-family:'Lora',serif;font-size:16px;font-weight:700;color:#fff;line-height:1;}
+#exit-guar-badge span:last-child{font-size:8px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.05em;}
+#exit-guar-text{font-size:13px;color:#4a4a4a;line-height:1.5;}
+#exit-guar-text strong{color:#1a1a1a;}
+#exit-cta{
+  display:block;width:100%;background:#2d6a4f;color:#fff;
+  font-weight:700;font-size:16px;padding:16px;border-radius:12px;
+  text-decoration:none;text-align:center;transition:background .2s;
+}
+#exit-cta:hover{background:#52b788;}
+#exit-skip{
+  display:block;text-align:center;margin-top:12px;
+  font-size:13px;color:#8a8a8a;cursor:pointer;
+  text-decoration:underline;background:none;border:none;width:100%;
+}
+#exit-skip:hover{color:#4a4a4a;}
+#exit-close{
+  position:absolute;top:12px;right:14px;
+  background:rgba(255,255,255,.15);border:none;cursor:pointer;
+  width:28px;height:28px;border-radius:50%;
+  color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+#exit-close:hover{background:rgba(255,255,255,.3);}
+@media(max-width:500px){
+  #exit-top{padding:24px 20px 18px;}
+  #exit-body{padding:20px;}
+  #exit-title{font-size:22px;}
+}
+</style>
+
+<div id="exit-overlay">
+  <div id="exit-box">
+    <div id="exit-top">
+      <button id="exit-close" onclick="closeExitPopup()">✕</button>
+      <div id="exit-emoji">🧠</div>
+      <div id="exit-title">Espera — você ainda<br>não tem o <span>Manual</span></div>
+      <div id="exit-sub">Mais de 400 pessoas já acessaram este material.<br>Não vai perder por R$ 37,90, vai?</div>
+    </div>
+    <div id="exit-body">
+      <div id="exit-items">
+        <div class="exit-item"><span class="exit-check">✓</span> ~110 páginas com os fundamentos da psicanálise explicados de forma clara</div>
+        <div class="exit-item"><span class="exit-check">✓</span> 4 bônus exclusivos sobre Freud, Jung e Lacan incluídos</div>
+        <div class="exit-item"><span class="exit-check">✓</span> Acesso imediato em PDF — leia no celular ou imprima</div>
+      </div>
+      <div id="exit-guar">
+        <div id="exit-guar-badge"><span>30</span><span>dias</span></div>
+        <div id="exit-guar-text"><strong>Garantia incondicional de 30 dias.</strong> Se não gostar, devolvemos 100% do valor. Sem perguntas.</div>
+      </div>
+      <a href="https://pay.cakto.com.br/tkrh53g_797340" id="exit-cta" target="_blank" onclick="closeExitPopup()">🔒 Quero o Manual por R$ 37,90</a>
+      <button id="exit-skip" onclick="closeExitPopup()">Não, prefiro sair sem o material</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const POPUP_KEY = 'saberpsi_exit_shown';
+  let shown = false;
+
+  function showExitPopup() {
+    if (shown || sessionStorage.getItem(POPUP_KEY)) return;
+    shown = true;
+    sessionStorage.setItem(POPUP_KEY, '1');
+    document.getElementById('exit-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+    // Dispara evento no pixel
+    if (typeof fbq !== 'undefined') {
+      fbq('trackCustom', 'ExitIntent');
+    }
+  }
+
+  // Desktop: mouse sai pelo topo da janela
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 10) showExitPopup();
+  });
+
+  // Mobile: botao voltar / visibilidade da pagina
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') showExitPopup();
+  });
+
+  // Fechar clicando fora do box
+  document.getElementById('exit-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeExitPopup();
+  });
+})();
+
+function closeExitPopup() {
+  document.getElementById('exit-overlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+</script>
+
 </body></html>
